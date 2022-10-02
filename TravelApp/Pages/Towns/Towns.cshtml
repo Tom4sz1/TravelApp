@@ -1,0 +1,41 @@
+@page
+@model TravelApp.Pages.Towns.TownsModel
+@{
+    ViewData["Title"] = "Towns";
+}
+
+<h1 style="text-align:center">@Model.Name</h1>
+<div class="container">
+    <div class="row">
+        @foreach (var d in Model.Descriptions1)
+            {
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <p>@Html.DisplayFor(o => d.Descripe)
+                            <br />
+                            @Html.DisplayFor(a => d.Autor) <br /> @Html.DisplayFor(t => d.Data) </p>
+                    </div>
+                </div>
+            </div>
+            
+         }
+    </div>
+    <hr />
+    <br />
+    <div style="position:absolute; bottom:100px; width:50%; border:3px solid:#8AC007;">
+        <a class="btn btn-primary" asp-page="/Countries/Countries" asp-route-id="@Model.Country.CountryId" asp-route-name="@Model.Country.Name">
+            <span class="glyphicon glyphicon-arrow-left"></span>Back to Town List
+        </a>
+        <a class="btn btn-primary" asp-page=@Model.RouterString>
+            <span class="glyphicon glyphicon-arrow-left"></span>Back to Country List
+        </a>
+        <a class="btn btn-primary" asp-page="/Forms/EditDescription" asp-route-id="@Model.Town.TownId" asp-route-name="@Model.Town.Name">
+            <span class="glyphicon glyphicon-arrow-left"></span>Edit Description
+        </a>
+
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

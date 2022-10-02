@@ -1,0 +1,42 @@
+@page
+@model TravelApp.Pages.Continents.AfricaModel
+@{
+    ViewData["Title"] = "Africa";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h1>Africa</h1>
+            <img src="/Africa.png" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-sm-8">
+            <h2>List of Countries</h2>
+            <form asp-page="/Continents/Africa" method="get">
+            <div class="form-action no-color">
+                <p>
+                    Find by name:
+                    <input type="text" name="searchString" value="@Model.CurrentFilter" />
+                    <input type="submit" value="Search" class="btn btn-primary" /> |
+                    <a asp-page="/Continents/Africa">Back to full List</a>
+                </p>
+            </div>
+            </form>
+            <div style="height:450px; overflow:scroll">
+                <form method="post">
+                    @foreach (var country in Model.Countries)
+                    {
+                        <a asp-page="/Countries/Countries" asp-route-id="@country.CountryId" asp-route-name="@country.Name"> @Html.DisplayFor(m => country.Name)</a>
+                        <hr />}
+                </form>
+            </div>
+        </div>
+    </div>
+    <br />
+    <hr />
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

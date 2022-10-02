@@ -1,0 +1,59 @@
+@page
+@model TravelApp.Pages.Forms.FormCountryModel
+
+@{
+    ViewData["Title"] = "FormCountry";
+}
+@{
+    var msg = ViewData["Message"];
+}
+
+<div class="jambotron">
+    <h1 class="display-4">Add New Town or Destination</h1>
+    <hr class="my-4" />
+    <p>Provide information below</p>
+    <form method="post">
+        <div class="form-group">
+            <label for="TownName">Name</label>
+            <br />
+            <small id="townHelp" class="from-text text-muted">Make sure the city belongs to the chosen country.</small>
+            <input type="text" class="form-control" id="TownName" aria-describedby="townHelp" asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+            @if (msg != null)
+            {
+                <span class="error">@msg</span>
+            }
+        </div>
+        <div class="form-group">
+            <label for="TownDescription">Description</label>
+            <textarea rows="30" cols="50" type="text" class="form-control" id="TownDescription" aria-describedby="descriptionHelp" asp-for="Des"></textarea>
+            <small id="descriptionHelp" class="from-text text-muted">Describe the place what you can visit and how to rest, and all the attractions you know</small>
+        </div>
+        <div class="form-group">
+            <label for="AccessToSea">Does this place have access to the sea?</label>
+            <input type="checkbox" class="form-control" id="AccessToSea" asp-for="AccessToSea"/>
+        </div>
+        <div class="form-group">
+            <label for="MountainousTerrain">Does this place have mountain access?</label>
+            <input type="checkbox" class="form-control" id="MountainousTerrain" asp-for="MountainousTerrain"/>
+        </div>
+        <div class="form-group">
+            <label for="WoodedArea">Are there forests around this place?</label>
+            <input type="checkbox" class="form-control" id="WoodedArea" asp-for="WoodedArea"/>
+        </div>
+        <div class="form-group">
+            <label for="HistoricalPlace">Are there any cultural monuments to visit?</label>
+            <input type="checkbox" class="form-control" id="HistoricalPlace" asp-for="HistoricalPlace"/>
+        </div>
+        <div class="form-group">
+            <label for="PlaceWithNature">Are there any natural attractions in this place (lakes, gardens, etc.)?</label>
+            <input type="checkbox" class="form-control" id="PlaceWithNature" asp-for="PlaceWithNature"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Add Place</button>
+    </form>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

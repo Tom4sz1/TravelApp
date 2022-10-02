@@ -1,0 +1,39 @@
+@page
+@model TravelApp.Pages.Countries.CountriesModel
+@{
+    ViewData["Title"] = "Countries";
+}
+<div class="container">
+    <h1 style="text-align:center">@Model.Name</h1>
+    <div class="row">
+        <h3>Description</h3>
+    </div>
+    <div class="row">
+        @Html.DisplayFor(d => Model.Country.Description);
+    </div>
+    <hr />
+    <div class="row">
+        <p>Towns</p>
+    </div>
+    <div class="row" style="height:350px; overflow:scroll; border:1px solid #ccc; column-count:3">
+        <form method="post">
+            @foreach (var town in Model.Towns)
+            {
+                <ul>
+                    <li>
+                        <a asp-page="/Towns/Towns" asp-route-name="@town.Name" asp-route-id="@town.CountryId">@Html.DisplayFor(m => town.Name)</a>
+                    </li>
+                </ul>
+             }
+        </form>
+    </div>
+    <div class="row d-flex justify-content-center align-content-center">
+        <a class="btn btn-primary" asp-page="/Forms/FormCountry" asp-route-id="@Model.Country.CountryId">Add Town</a>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,74 @@
+﻿@page
+
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div style="background-color: rgb(251, 248, 252)">
+    <div class="jumbotron jumbotron text-white" style="background-image: url(logo.jpeg); background-repeat: no-repeat; background-position: center center; background-size: cover; ">
+        <div class="container">
+            <h2 class="text-center display-3 mb-4" style="color: DarkSlateGray ">Welcome in Travel App</h2>
+        </div>
+    </div>
+    <hr />
+    <p style="text-align:center">A website where everyone can share their impressions after visiting beautiful places in the world.
+    Everyone can inspire other people what is worth visiting and share your own impressions after the trips.</p>
+    <h1 style="text-align:center">Pick destination!</h1>
+    <div class="container">
+        <form method="post">
+            <div class="row justify-content-md-center">
+                <div class="col-md-5">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <a asp-page="/Continents/Asia"><img src="Asia.png" class="d-block w-100" alt="Asia"></a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5 class="text-dark">Asia</h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a asp-page="/Continents/Africa"><img src="Africa.png" class="d-block w-100" alt="Africa"></a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5 class="text-dark">Africa</h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a asp-page="/Continents/Australia"><img src="Australia.png" class="d-block w-100" alt="Australia"></a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5 class="text-dark">Australia</h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a asp-page="/Continents/Europe"><img src="Europe.png" class="d-block w-100" alt="Europe"></a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5 class="text-dark">Europe</h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a asp-page="/Continents/NorthAmerica"><img src="North-America.png" class="d-block w-100" alt="North America"></a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5 class="text-dark">North America</h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <a asp-page="/Continents/SouthAmerica"><img src="South-America.png" class="d-block w-100" alt="South America"></a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5 class="text-dark">South America</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-info" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-info" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>          
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+@page
+@model TravelApp.Pages.Forms.EditDescriptionModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <div class="col-sm-7">
+        <form method="post">
+            <textarea rows="20" cols="30" typeof="text" class="form-control" id="Description" asp-for="Desc"></textarea>
+            <button type="submit" class="btn btn-dark">Save</button>
+        </form>
+    </div>
+    <div class="col-sm-3">
+        <h4>
+            
+            Please share your opinion about
+            -@Html.DisplayFor(t => t.Name)-
+            
+        </h4>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
